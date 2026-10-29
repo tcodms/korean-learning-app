@@ -30,4 +30,6 @@ No known blocking visual or interaction defects remain in the tested prototype f
 
 ## Button refinement, 2026-10-29
 
+Latest decision: user selected dusty blue #526F91 after rejecting black. Primary actions now use that blue, a darker blue hover #455F7F and blue lower edge #3D5571. The approved card shapes, tactile effects, peach surfaces and orange accents remain. Confirmed the live home CTA computes to rgb(82,111,145) with white text; white-to-blue contrast is approximately 5.20:1. Mobile runtime integrity passes. Current evidence: docs/qa/dusty-blue.png. The black trial below is historical.
+
 User requested black primary actions. Changed the primary token to warm black #242220, with a separate circular arrow, a subtle lower edge, and press feedback. Kept peach/orange learning cards, outlined secondary actions, and orange selection states. Learning rows now have individual outlines and icon tiles; category and answer cards have restrained depth. Disabled primary actions retain their muted state, and reduced-motion styles cover the new transitions. This decision supersedes the initial burnt-orange CTA reference. Browser home appearance and Learn navigation were inspected; production build and the 28-file runtime integrity check pass. Evidence: docs/qa/black-buttons.png.
