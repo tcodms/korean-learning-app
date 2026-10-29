@@ -27,3 +27,7 @@ Fixed during QA: repeat-audio handling; accurate review-filter label; consistent
 TypeScript passes. Content tests pass (2): unique and reachable answers, all four areas covered, listening scripts present, Korean NFC/NFD handling, punctuation tolerance, and wrong-particle rejection. Production build passes. Vite reports one bundle-size warning; code splitting and font asset reduction are follow-up optimizations.
 
 No known blocking visual or interaction defects remain in the tested prototype flow. Educational review of all sample content, real-device audio verification, and native packaging remain future work.
+
+## Button refinement, 2026-10-29
+
+User requested black primary actions. Changed the primary token to warm black #242220, with a separate circular arrow, a subtle lower edge, and press feedback. Kept peach/orange learning cards, outlined secondary actions, and orange selection states. Learning rows now have individual outlines and icon tiles; category and answer cards have restrained depth. Disabled primary actions retain their muted state, and reduced-motion styles cover the new transitions. This decision supersedes the initial burnt-orange CTA reference. Browser home appearance and Learn navigation were inspected; production build and the 28-file runtime integrity check pass. Evidence: docs/qa/black-buttons.png.
