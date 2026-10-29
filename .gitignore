@@ -1,0 +1,21 @@
+# Dependencies and build output
+node_modules/
+dist/
+build/
+.expo/
+.vite/
+coverage/
+
+# Credentials and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local development and transient output
+*.log
+.DS_Store
+Thumbs.db
+tmp/
+.cache/
