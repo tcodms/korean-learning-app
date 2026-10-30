@@ -1,4 +1,37 @@
-# V1 prototype design QA
+# MAL UI preview — 2026-10-30
+
+final result: passed
+
+Scope: three coded screen designs, using temporary presentation state only. No backend, persistence, real audio, course engine, or production grading is connected.
+
+Reference: `design/mal-home-reference.png` (390 × 940). Implementation: `app/src/MalPreview.tsx`, `app/src/prototype.css`. Direct side-by-side evidence: `docs/qa/mal-ui/home-comparison.png`. Three-screen board: `docs/qa/mal-ui/essential-screens.png`.
+
+## Visual comparison
+
+- Compared reference and implementation together at 1:1 device scale. Retained the cream canvas, cobalt headings/actions, lime streak and selected navigation, pale lavender plan/shortcuts, two white stats cards, and reading mascot beside the hero copy.
+- Adjusted hero height, top spacing, stats gap, plan spacing and Explore spacing after the first comparison. Main content uses 20px side margins and a consistent rounded card/button system.
+- Intentional differences: the protected runtime supplies status bar, phone frame, home indicator and touch cursor; its iPhone viewport is 393 × 852 rather than the 390 × 940 source. Lower home content scrolls above fixed navigation. Pixel 10 at 427 × 952 displays the complete default home content. The reading mascot is a matching newly generated asset, not the exact reference drawing.
+- Skills and lesson extend the same color, typography, corner and icon system. Selected choices combine outline, fill, text and check marks. Hint and feedback panels retain the restricted palette.
+- Inspected `home.png`, `skills.png`, `lesson.png`, `listening-final.png` and Pixel home captures. No unresolved major visual clipping or horizontal overflow in the final inspected layouts.
+
+## Interaction verification
+
+- Home → skills → toggle selections → Continue → home → lesson.
+- Clearing every skill disables Continue; restoring a selection enables it.
+- Empty question disables Check answer; selecting a word enables it. Hint, sample feedback and Back to Today work.
+- Listening cards populate answer slots; Undo removes the last word. Typing mode accepts Korean input and exits into sample feedback. Audio controls animate without playing sound.
+- Screen preview toolbar provides direct navigation. Character tap changes sprite poses. Review/Progress open sample panels.
+- Browser console: no warnings/errors captured. TypeScript and Vite production build passed. Mobile runtime integrity passed for all 28 protected files; runtime files were not edited.
+
+## Generated assets
+
+`app/public/assets/mal/reading.png`: transparent cobalt round mascot, cream oval face, navy eyes, lime pencil, open book, restrained lime accents; generated to match the selected reference.
+
+`app/public/assets/mal/reactions.png`: transparent four-frame horizontal sprite of the same mascot, greeting and celebrating. Used as pose animation, with reduced-motion support. UI itself is React/CSS, not a flattened screenshot.
+
+---
+
+# Historical V1 prototype design QA (superseded on mal-ui)
 
 Status: passed for the initial browser prototype, 2026-10-29.
 
