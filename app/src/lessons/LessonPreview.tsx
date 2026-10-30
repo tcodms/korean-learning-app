@@ -30,6 +30,9 @@ const isDictation=isListening&&listeningMode==='dictation';
 const typing=isListening?isDictation:inputMode;
 const answered=typing?typed.trim().length>0:choice!==null;
 const shownCorrect=isDictation?compact(typed)===compact(dictationQuestion.script):isListening?choice===contextQuestion.answer:inputMode?compact(typed)===compact(vocabularyAnswer):choice===vocabularyAnswer;
+/** Typing the right word submits on its own; the short pause lets the last syllable settle. */
+const autoSubmit=!isListening&&inputMode&&!feedback&&shownCorrect;
+useEffect(()=>{if(!autoSubmit)return;const t=window.setTimeout(()=>{keyboard.hide();setFeedback(true);},350);return ()=>clearTimeout(t);},[autoSubmit,typed]);
 const question=isDictation?{title:'Listen and write it down.',subtitle:'Type the Korean sentence you hear.',hint:dictationQuestion.hint,answer:dictationQuestion.script,explanation:dictationQuestion.explanation}
   :isListening?{title:'Listen. What does it mean?',subtitle:'Choose the meaning that matches what you hear.',hint:contextQuestion.hint,answer:contextQuestion.script,explanation:contextQuestion.explanation}
   :{title:'Find the right word.',subtitle:'Choose the word that fits the sentence.',answer:vocabularySentence,explanation:vocabularyExplanation};
