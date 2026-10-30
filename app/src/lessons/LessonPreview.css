@@ -20,7 +20,13 @@
 .mal-feedback-head{display:flex;align-items:center;gap:9px}
 .mal-feedback-head>h2{font-size:16px;letter-spacing:-.5px}
 .mal-feedback-symbol{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--mal-lime);flex-shrink:0;animation:mal-check-pop .4s ease-out}
-.mal-feedback.try-again .mal-feedback-symbol{background:#e1e5ff}
+.mal-feedback.try-again{background:#fffaf6;border-color:#f1d6cc}
+.mal-feedback.try-again .mal-feedback-symbol{background:#c8492f;color:#fff}
+.mal-your-answer{display:flex;align-items:baseline;gap:10px;margin-top:16px;padding:10px 12px;border:1px dashed #e6b9aa;border-radius:12px;background:#fff}
+.mal-your-answer>span,.mal-answer-label{font-size:11px;font-weight:600;color:#5d6889}
+.mal-your-answer>del{font-family:'Noto Sans KR',sans-serif;font-size:17px;font-weight:600;color:#b03e27;text-decoration-thickness:2px}
+.mal-answer-label{display:block;margin-top:14px}
+.mal-answer-label+.mal-correct-answer{margin-top:2px!important}
 .mal-correct-answer{font-family:'Noto Sans KR',sans-serif;font-size:23px;line-height:1.7;font-weight:600;margin-top:18px!important}
 .mal-feedback>p:not(.mal-correct-answer){font-size:12px;line-height:1.8;color:#637298;margin-top:10px}
 .mal-feedback-bottom{display:flex;align-items:center;justify-content:space-between;min-height:83px}
