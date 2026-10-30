@@ -17,18 +17,22 @@
 
 ## 최신 디자인 결정
 
-V1 호랑이와 주황 계열 팔레트가 확정되었습니다. 모든 화면의 강한 다색 강조를 주황의 밝기·채도 차이로 통일합니다. 최신 기준 이미지는 design/tiger-v1-orange-home-learn.png이며 상세 구현 원칙은 AGENTS.md에 기록했습니다. 위의 캐릭터 미확정 서술보다 이 결정이 우선합니다.
+V1 호랑이와 크림·살구색 카드, 주황색 아이콘을 사용합니다. 주요 버튼은 사용자 선택에 따라 더스티 블루 #526F91로 변경했습니다. 카드 형태와 눌림 효과는 유지합니다. 상세 구현 원칙은 AGENTS.md에 기록했습니다.
 
 ## 실행
 
-Node.js 24 LTS를 사용합니다. `app` 폴더에서 실행합니다.
+Git과 Node.js 24 LTS를 설치합니다. 현재 앱 코드는 `codex/app-prototype` 브랜치에 있습니다. 아래 명령을 터미널에서 순서대로 실행합니다.
 
 ```sh
+git clone --branch codex/app-prototype https://github.com/tcodms/korean-learning-app.git
+cd korean-learning-app/app
 npm ci
-npm run dev -- --host 127.0.0.1 --port 4174
+npm run dev -- --host 127.0.0.1 --port 4173 --strictPort
 ```
 
-브라우저에서 http://localhost:4174/ 를 엽니다. iPhone / Pixel 10 미리보기를 선택할 수 있습니다. 앱스토어 설치용 네이티브 앱은 아직 아닙니다.
+브라우저에서 http://localhost:4173/ 를 엽니다. 우측 위 선택 메뉴에서 iPhone / Pixel 10 미리보기를 바꿀 수 있습니다. Android Studio나 Xcode 없이 브라우저에서 실행하는 모바일 웹 미리보기이며, 앱스토어 설치용 네이티브 앱은 아직 아닙니다. 개발 서버를 실행한 터미널을 유지해야 하며 종료는 Ctrl+C입니다. 4173 포트가 사용 중이면 명령의 포트를 4174로 바꾸고 http://localhost:4174/ 를 엽니다.
+
+이미 내려받았다면 저장소 폴더에서 `git switch codex/app-prototype`, `git pull --ff-only`를 실행한 뒤 `app` 폴더에서 `npm ci`, 위 개발 서버 명령을 실행합니다. 학습 기록은 각자의 브라우저에 따로 저장되며 별도 DB나 API 키는 필요 없습니다.
 
 ## 구현된 체험 흐름
 
