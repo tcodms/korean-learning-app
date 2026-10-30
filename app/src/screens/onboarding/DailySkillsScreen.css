@@ -1,0 +1,23 @@
+.mal-topbar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-left:-8px}
+.mal-small-wordmark{font-size:19px;letter-spacing:-1px;font-weight:700;color:var(--mal-blue)}
+.mal-step{font-size:12px;font-weight:600;color:var(--mal-muted)}
+.mal-onboarding-progress{display:flex;gap:5px;margin-top:19px}
+.mal-onboarding-progress>i{height:5px;border-radius:5px;background:var(--mal-blue);width:27px}
+.mal-onboarding-progress>.muted{background:#e1e5ff}
+.mal-skills-title{margin-top:30px}
+.mal-eyebrow{font-size:9px;letter-spacing:1.8px;font-weight:600;color:var(--mal-blue)}
+.mal-skills-title h1{font-size:32px;line-height:1.14;margin-top:11px;letter-spacing:-1.3px}
+.mal-skills-title p{font-size:14px;line-height:1.6;color:var(--mal-muted);margin-top:13px}
+.mal-skill-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:27px}
+.mal-skill-card{position:relative;display:flex;flex-direction:column;align-items:flex-start;text-align:left;min-height:154px;border:1.5px solid #e0e4f4!important;border-radius:22px;padding:22px 16px 18px!important;background:#fffdf7!important;transition:background .2s,border-color .2s,transform .16s,box-shadow .16s}
+.mal-skill-card>svg{color:var(--mal-blue);margin-bottom:16px}
+.mal-skill-card strong{font-size:16px;letter-spacing:-.5px}
+.mal-skill-card>span:last-child{font-size:11px;line-height:1.55;color:var(--mal-muted);max-width:125px;margin-top:5px}
+.mal-skill-card.selected{background:#f0f2ff!important;border-color:var(--mal-blue)!important;box-shadow:0 3px 0 #dce2ff}
+.mal-card-check{position:absolute;top:13px;right:13px;height:21px;width:21px;border:1.5px solid #d7dcf4;border-radius:50%;display:grid;place-items:center;color:var(--mal-ink)}
+.mal-skill-card.selected .mal-card-check{background:var(--mal-lime);border-color:var(--mal-lime);animation:mal-check-pop .28s ease-out}
+.mal-skill-card:hover{transform:translateY(-2px)}
+.mal-skill-card:active{transform:translateY(2px);box-shadow:none}
+.mal-selection-caption{font-size:11px;line-height:1.5;text-align:center;color:var(--mal-muted);margin-top:19px!important}
+.mal-settings-note{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:3px;min-height:90px}
+.mal-settings-note>span:last-child{font-size:11px;line-height:1.7;color:var(--mal-muted)}

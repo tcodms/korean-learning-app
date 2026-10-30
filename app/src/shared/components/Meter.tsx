@@ -1,0 +1,1 @@
+export default function Meter({value=30,label='Today’s practice'}:{value?:number;label?:string}){return <div className="mal-meter" role="progressbar" aria-label={label} aria-valuenow={value} aria-valuemin={0} aria-valuemax={100}><span style={{width:`${value}%`}}/></div>;}

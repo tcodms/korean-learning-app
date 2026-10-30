@@ -1,0 +1,49 @@
+.mal-home-header{display:flex;align-items:center;justify-content:space-between;height:42px}
+.mal-home-header h1{font-size:32px}
+.mal-streak{display:flex;align-items:center;justify-content:center;gap:6px;min-width:61px;min-height:40px;background:var(--mal-lime)!important;border-radius:24px;font-weight:700!important;font-size:16px!important;transition:transform .18s}
+.mal-streak:hover{transform:rotate(-4deg)}
+.mal-streak:active{transform:scale(.94)}
+.mal-hero{position:relative;height:169px;display:flex;align-items:flex-end;padding-bottom:18px;margin-top:3px}
+.mal-hero-copy{position:relative;z-index:2;pointer-events:none}
+.mal-hero h2{font-size:25px;line-height:1.2;letter-spacing:-.85px;max-width:205px}
+.mal-hero-copy p{font-size:13px;font-weight:600;color:var(--mal-blue);margin-top:10px;text-decoration:underline;text-underline-offset:3px;font-family:'Noto Sans KR',sans-serif}
+.mal-pet-button{position:absolute;right:-5px;top:-1px;width:159px;height:181px;padding:0!important;display:grid;place-items:center;border-radius:30px}
+.mal-home-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+.mal-stat{min-height:84px;padding:12px 14px;border:1.5px solid var(--mal-line)!important;border-radius:21px;background:#fff!important;text-align:left}
+.mal-stat>span:first-child{font-size:12px;font-weight:500;color:#58648b;display:block}
+.mal-stat strong{font-size:23px;line-height:1.1;font-weight:700;letter-spacing:-.7px}
+.mal-stat>div>span{font-size:13px;color:#6a7498}
+.mal-review-stat{display:flex;align-items:center;gap:10px;padding:12px!important;transition:transform .18s,box-shadow .18s}
+.mal-star{width:35px;height:35px;display:grid!important;place-items:center;background:var(--mal-lime);border-radius:12px;color:var(--mal-ink)!important;flex-shrink:0}
+.mal-stat-copy{display:flex;flex-direction:column;gap:6px;flex:1}
+.mal-stat-copy>span{font-size:12px;line-height:1.15;color:#58648b;font-weight:500}
+.mal-stat-copy strong{font-size:18px;letter-spacing:-.4px}
+.mal-review-stat>svg{color:#68779b;flex-shrink:0}
+.mal-review-stat:hover{transform:translateY(-2px);box-shadow:0 5px 12px #3353ff0b}
+.mal-review-stat:active{transform:translateY(1px)}
+.mal-plan{background:var(--mal-lilac);border-radius:27px;padding:17px 16px 16px;margin-top:15px}
+.mal-plan-heading{display:flex;align-items:center;justify-content:space-between;gap:5px;margin-bottom:9px}
+.mal-plan-heading h2{font-size:18px;letter-spacing:-.7px}
+.mal-plan-heading p{font-size:12px;line-height:1.5;color:var(--mal-muted);margin-top:3px}
+.mal-plan-edit{color:var(--mal-blue)!important;margin-right:-7px;opacity:.6}
+.mal-plan-edit:hover{opacity:1}
+.mal-plan-list{background:#fff;border-radius:18px;padding:0 12px}
+.mal-plan-row{display:flex;align-items:center;width:100%;gap:12px;text-align:left;min-height:49px;border-bottom:1px solid #edf0ff!important;padding:6px 0!important;transition:transform .18s}
+.mal-plan-row:last-child{border-bottom:0!important}
+.mal-plan-row>span:nth-child(2){flex:1;font-size:14px;font-weight:500}
+.mal-plan-row small{color:var(--mal-muted);font-size:12px;white-space:nowrap}
+.mal-skill-icon{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--mal-blue);color:#fff;flex-shrink:0}
+.mal-check-circle{height:22px;width:22px;display:grid;place-items:center;background:var(--mal-blue);color:white;border-radius:50%;flex-shrink:0}
+.mal-plan-row:hover{transform:translateX(2px)}
+.mal-plan-meta{display:flex;justify-content:space-between;color:var(--mal-muted);font-size:12px;margin:10px 4px 12px}
+.mal-explore{margin-top:17px}
+.mal-section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.mal-section-title h2{font-size:18px;letter-spacing:-.7px}
+.mal-section-title>button{color:var(--mal-blue);font-size:12px;font-weight:600;min-height:28px;padding:0}
+.mal-shortcuts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.mal-shortcuts>button{min-height:78px;border-radius:22px;background:var(--mal-lilac);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;padding:12px 2px;transition:transform .18s,background .18s}
+.mal-shortcuts>button>svg{color:var(--mal-blue)}
+.mal-shortcuts>button>span{font-size:12px;letter-spacing:-.3px}
+.mal-shortcuts>button:hover{transform:translateY(-4px);background:#e4e8ff}
+.mal-shortcuts>button:active{transform:scale(.95)}
+.mal-about{display:flex;gap:5px;align-items:center;justify-content:center;margin:10px auto 0;min-height:29px;font-size:10px!important;color:var(--mal-muted)!important;padding:2px 0}

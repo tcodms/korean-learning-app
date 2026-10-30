@@ -1,20 +1,45 @@
-# 한국어 학습 앱
+# MAL — Korean, a little every day.
 
-일반 한국어의 어휘·리스닝·문법·표현을 짧은 퀴즈와 복습으로 익히는 모바일 앱 프로젝트입니다.
+React · TypeScript · Vite 기반 모바일 웹 UI 미리보기입니다. 디자인 브랜치는 `mal-ui`입니다.
 
-## 문서와 디자인
+## 현재 화면
 
-- docs/product-plan-v2.md: 현재 제품 기획안
-- docs/legacy-topik-design-brief.md: 이전 TOPIK 기획 참고용. 현재 구현 기준이 아닙니다.
-- design/references/: 사용자가 제공한 학습 화면 참고 자료. 제품 배포용 자산이 아닙니다.
-- design/: 생성 UI 시안과 구현 연결 명세를 보관합니다.
+- Today: 샘플 학습량, 일일 계획, 영역 바로가기, 캐릭터 인사 반응
+- Daily skills: 단어·듣기·문법·표현 복수 선택, 선택·비활성 상태
+- Lesson: 단어 선택과 듣기 카드 배열 시안, 힌트·직접 입력·샘플 해설
 
-## 첫 구현 목표
+버튼 눌림, 화면 전환, 캐릭터 포즈, 재생 버튼 애니메이션을 확인할 수 있습니다. 모든 수치는 샘플이며 새로고침하면 선택 상태가 초기화됩니다. 실제 음성, 채점, 학습 기록 저장, DB·백엔드는 연결하지 않았습니다. Review와 Progress는 간단한 샘플 패널입니다.
 
-학습 영역 선택 → 샘플 문제 풀이 → 정답·해설 → 결과 확인.
-어휘·리스닝·문법·표현을 지원하고 실전 회화와 발음 평가는 제외합니다.
-브랜드명·캐릭터·설명 언어·최종 기술 구성은 시안과 개발 조건에 따라 확정합니다.
+## 실행
 
-## 최신 디자인 결정
+Node.js 24 LTS와 Git을 설치한 후 실행합니다.
 
-V1 호랑이와 주황 계열 팔레트가 확정되었습니다. 모든 화면의 강한 다색 강조를 주황의 밝기·채도 차이로 통일합니다. 최신 기준 이미지는 design/tiger-v1-orange-home-learn.png이며 상세 구현 원칙은 AGENTS.md에 기록했습니다. 위의 캐릭터 미확정 서술보다 이 결정이 우선합니다.
+```sh
+git clone --branch mal-ui https://github.com/tcodms/korean-learning-app.git
+cd korean-learning-app/app
+npm ci
+npm run dev -- --host 127.0.0.1 --port 4173 --strictPort
+```
+
+브라우저에서 http://localhost:4173/ 를 엽니다. 화면 바깥 메뉴에서 세 화면을 바로 전환하고 우측 메뉴에서 iPhone·Pixel을 선택할 수 있습니다. 브라우저 속 기기 프레임이며 네이티브 에뮬레이터는 아닙니다.
+
+## 팀 작업 구조
+
+- 전체 흐름 담당: `app/src/screens/`, `app/src/Prototype.tsx`
+- 수업 담당: `app/src/lessons/` — 어휘·듣기·문법·표현
+- 공통 UI: `app/src/shared/` — 색상·버튼·캐릭터·공통 타입
+- 협업 방법·수업 연결·브랜치 안내: [UI 협업 안내](docs/ui-collaboration.md)
+
+문법·표현은 교체용 시작 파일이며 전용 수업 UI가 완성된 상태가 아닙니다. 예약한 화면 폴더는 README로 작업 범위를 표시했습니다.
+
+## 디자인과 검증 자료
+
+기준 이미지: `design/mal-home-reference.png`. 생성 캐릭터: `app/public/assets/mal/`. 검증: `design-qa.md`, 화면 캡처: `docs/qa/mal-ui/`.
+
+```sh
+cd app
+npm run check:runtime
+npm run build
+```
+
+이전 호랑이 버전은 Git 이력에 보관되어 있습니다. 기존 기획 문서는 참고 자료이며 이 브랜치에서 기능 구현 완료를 의미하지 않습니다.
