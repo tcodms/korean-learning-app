@@ -14,6 +14,10 @@ import LevelScreen from './screens/onboarding/LevelScreen';
 import DailySkillsScreen from './screens/onboarding/DailySkillsScreen';
 import GoalsScreen from './screens/onboarding/GoalsScreen';
 import TodayScreen from './screens/today/TodayScreen';
+import LearnScreen from './screens/learn/LearnScreen';
+import LessonListScreen from './screens/learn/LessonListScreen';
+import LessonIntroScreen from './screens/learn/LessonIntroScreen';
+import {getLessons,type TopicId,type LessonSummary} from './screens/learn/learn.mock';
 import CourseIntroScreen from './screens/today/CourseIntroScreen';
 import LessonPreview from './lessons/LessonPreview';
 import ResultScreen from './screens/result/ResultScreen';
@@ -32,6 +36,10 @@ const [skillsReturn,setSkillsReturn]=useState<Screen>('today');
 const [skillsBack,setSkillsBack]=useState<Screen>('today');
 const [resultKind,setResultKind]=useState<ResultKind>('daily');
 const [area,setArea]=useState<Skill>('vocabulary');
+const [browseArea,setBrowseArea]=useState<Skill>('vocabulary');
+const [browseTopic,setBrowseTopic]=useState<TopicId>('everyday');
+const [browseLesson,setBrowseLesson]=useState<LessonSummary>(getLessons('vocabulary','everyday')[0]);
+const [lessonReturn,setLessonReturn]=useState<Screen>('today');
 // Overlay state
 const [about,setAbout]=useState(false);
 const [previewPanel,setPreviewPanel]=useState<'review'|'progress'|null>(null);
@@ -47,9 +55,10 @@ function go(next:Screen){keyboard.hide();setScreen(next);}
 function openSkillsFrom(back:Screen,returnTo:Screen){
   setSkillsBack(back);setSkillsReturn(returnTo);go('skills');
 }
-function openLesson(next:Skill='vocabulary',kind:ResultKind='free'){
-  setArea(next);setResultKind(kind);go('lesson');
+function openLesson(next:Skill='vocabulary',kind:ResultKind='free',returnTo:Screen='today'){
+  setArea(next);setResultKind(kind);setLessonReturn(returnTo);go('lesson');
 }
+function openLearn(next:Skill='vocabulary'){setBrowseArea(next);go('learn');}
 
 // Onboarding flow
 function startOnboarding(){go('language');}
@@ -82,6 +91,7 @@ return <>
     <div role="group" aria-label="App screens">
       {([
         {id:'today',label:'01 Today'},
+        {id:'learn',label:'02 Learn'},
         {id:'course',label:'03 Course'},
         {id:'lesson',label:'04 Lesson'},
         {id:'result',label:'05 Result'},
@@ -111,10 +121,13 @@ return <>
   {screen==='level'&&<LevelScreen onBack={()=>go('language')} onNext={onLevelDone}/>}
   {screen==='skills'&&<DailySkillsScreen selected={selected} onExit={()=>go(skillsBack)} onComplete={value=>{setSelected(value);go(skillsReturn);}}/>}
   {screen==='goals'&&<GoalsScreen selectedSkills={selected} onBack={()=>openSkillsFrom('level','goals')} onSkip={()=>go('today')} onComplete={onGoalsDone}/>}
-  {screen==='today'&&<TodayScreen selected={selected} onChooseSkills={openSkillsFromToday} onStartLesson={openLesson} onStartDailyCourse={()=>go('course')} onReview={()=>setPreviewPanel('review')} onProgress={()=>setPreviewPanel('progress')} onAbout={()=>setAbout(true)}/>}
+  {screen==='today'&&<TodayScreen selected={selected} onChooseSkills={openSkillsFromToday} onStartLesson={openLesson} onStartDailyCourse={()=>go('course')} onExplore={openLearn} onReview={()=>setPreviewPanel('review')} onProgress={()=>setPreviewPanel('progress')} onAbout={()=>setAbout(true)}/>}
+  {screen==='learn'&&<LearnScreen area={browseArea} onAreaChange={setBrowseArea} onTopic={topic=>{setBrowseTopic(topic);go('lesson-list');}} onHome={()=>go('today')} onReview={()=>setPreviewPanel('review')} onProgress={()=>setPreviewPanel('progress')}/>}
+  {screen==='lesson-list'&&<LessonListScreen area={browseArea} topic={browseTopic} onBack={()=>go('learn')} onLesson={lesson=>{setBrowseLesson(lesson);go('lesson-intro');}}/>}
+  {screen==='lesson-intro'&&<LessonIntroScreen lesson={browseLesson} onBack={()=>go('lesson-list')} onStart={()=>openLesson(browseLesson.area,'free','lesson-intro')}/>}
   {screen==='course'&&<CourseIntroScreen selected={selected} onExit={()=>go('today')} onEdit={openSkillsFromCourse} onStart={next=>openLesson(next,'daily')}/>}
   {screen==='result'&&<ResultScreen result={createResultPreview(resultKind,resultKind==='daily'?selected:[area])} onHome={()=>go('today')} onPracticeAgain={()=>openLesson(resultKind==='daily'?(selected[0]??'vocabulary'):area,resultKind)} onReview={()=>openLesson(area,'review')}/>}
-  {screen==='lesson'&&<LessonPreview key={area} area={area} onExit={()=>go('today')} onComplete={()=>go('result')}/>}
+  {screen==='lesson'&&<LessonPreview key={area} area={area} onExit={()=>go(lessonReturn)} onComplete={()=>go('result')}/>}
 
   <BottomSheet open={about} onOpenChange={setAbout} title="A little look at MAL" description="A new little learning world.">
     <div className="mal-sheet">
