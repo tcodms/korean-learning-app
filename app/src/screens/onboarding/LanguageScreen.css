@@ -1,0 +1,53 @@
+.mal-lang-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 24px;
+  border: 1.5px solid var(--mal-line);
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+}
+.mal-lang-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 58px;
+  padding: 0 18px !important;
+  border-bottom: 1px solid var(--mal-line) !important;
+  text-align: left;
+  background: transparent !important;
+  transition: background 0.15s;
+}
+.mal-lang-row:last-child { border-bottom: 0 !important; }
+.mal-lang-row:hover:not(:disabled) { background: var(--mal-lilac) !important; }
+.mal-lang-row.selected { background: var(--mal-lilac) !important; }
+.mal-lang-row.soon { opacity: 0.45; cursor: default; }
+.mal-lang-label { flex: 1; font-size: 15px; font-weight: 500; }
+.mal-lang-native { font-size: 13px; color: var(--mal-muted); }
+.mal-lang-check {
+  width: 22px; height: 22px; border-radius: 50%;
+  border: 1.5px solid var(--mal-line);
+  display: grid; place-items: center; flex-shrink: 0;
+  color: var(--mal-ink);
+}
+.mal-lang-row.selected .mal-lang-check {
+  background: var(--mal-lime);
+  border-color: var(--mal-lime);
+}
+.mal-lang-badge {
+  font-size: 10px; font-weight: 600; letter-spacing: .4px;
+  color: var(--mal-muted);
+  background: #f0f1f8;
+  border-radius: 8px; padding: 3px 8px;
+}
+
+.mal-lang-list{gap:10px;border:0;border-radius:0;background:transparent;overflow:visible}
+.mal-lang-row{min-height:73px;border:1.5px solid var(--mal-line)!important;border-radius:18px;background:#fffdf8!important;transition:background .18s,transform .15s,box-shadow .18s}
+.mal-lang-row:last-child{border-bottom:1.5px solid var(--mal-line)!important}
+.mal-lang-row.selected{border-color:var(--mal-blue)!important;box-shadow:0 3px 0 #dce3ff;background:#eef0ff!important}
+.mal-lang-row:active:not(:disabled){transform:translateY(2px);box-shadow:none}
+.mal-lang-row.soon{opacity:.65}
+.mal-lang-glyph{display:grid;place-items:center;width:36px;height:36px;border-radius:11px;background:#f0f2fa;color:var(--mal-muted);font-size:13px;font-weight:600;flex-shrink:0}
+.mal-lang-row.selected .mal-lang-glyph{background:var(--mal-blue);color:white}
