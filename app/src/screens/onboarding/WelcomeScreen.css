@@ -1,0 +1,31 @@
+/* Landing: cream, cobalt and a little lime. */
+.mal-welcome{position:absolute;inset:0;display:flex;flex-direction:column;background:var(--mal-paper);padding:calc(var(--device-safe-area-top,54px) + 10px) 24px calc(var(--device-safe-area-bottom,34px) + 16px)}
+.mal-welcome-top{display:flex;align-items:center;justify-content:space-between;min-height:44px;gap:10px}
+.mal-welcome-wordmark{font-size:32px;font-weight:700;letter-spacing:-2px;color:var(--mal-blue)}
+.mal-welcome-tag{display:flex;align-items:center;gap:5px;background:#eaf4c3;border:1px solid #dfeaaf;border-radius:20px;padding:8px 10px;font-size:9px;font-weight:600;color:#536231}
+.mal-welcome-hero{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:17px}
+.mal-welcome-stage{position:relative;isolation:isolate;width:270px;height:236px;flex-shrink:1;min-height:175px}
+.mal-welcome-orbit{position:absolute;width:208px;height:208px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f1f0ff,#e2e6ff);left:31px;bottom:3px;transform:rotate(-12deg);border:1px solid #dfe3ff}
+.mal-welcome-orbit::after{content:'';position:absolute;inset:-12px;border:1px dashed #d9def0;border-radius:50%}
+.mal-welcome-mascot{position:absolute;inset:0;margin:auto;display:grid;place-items:center;width:220px;height:236px;z-index:2;padding:0!important;border-radius:50%}
+.mal-welcome-mascot .mal-reading{filter:drop-shadow(0 9px 8px #263ea916)}
+.mal-welcome-mascot>.mal-mascot{width:150px;height:200px}
+.mal-welcome-tile{position:absolute;z-index:3;display:grid;place-items:center;border-radius:16px;background:#fffef9;border:1px solid #dce2ff;box-shadow:0 5px 0 #dfe4f7;font-family:'Noto Sans KR',sans-serif;font-weight:600;color:var(--mal-blue);pointer-events:none;animation:mal-welcome-drift 4s ease-in-out infinite}
+.mal-welcome-tile.tile-one{left:0;top:51px;padding:13px 14px;font-size:20px;rotate:-12deg}
+.mal-welcome-tile.tile-two{right:3px;bottom:25px;width:55px;height:57px;background:var(--mal-lime);border-color:#cbe862;box-shadow:0 5px 0 #c9dc89;font-size:28px;rotate:12deg;animation-delay:-2s}
+.mal-welcome-spark{position:absolute;right:13px;top:17px;font-size:30px;color:var(--mal-blue);rotate:14deg}
+.mal-welcome-copy{animation:mal-welcome-enter .55s ease both}
+.mal-welcome-copy h1{font-size:37px;line-height:1.1;letter-spacing:-1.6px}
+.mal-welcome-copy h1>span{position:relative;isolation:isolate}
+.mal-welcome-copy h1>span::after{content:'';position:absolute;z-index:-1;left:-5px;right:-5px;bottom:2px;height:10px;background:var(--mal-lime);border-radius:9px;transform:rotate(-2deg)}
+.mal-welcome-copy p{font-size:13px;line-height:1.65;color:var(--mal-muted);margin-top:17px}
+.mal-welcome-features{display:flex;justify-content:center;gap:8px;width:100%}
+.mal-welcome-features>span{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px 11px;border:1px solid #e0e4f5;background:#fffdf7;border-radius:13px;font-size:10px;color:var(--mal-ink)}
+.mal-welcome-features svg{color:var(--mal-blue)}
+.mal-welcome-footer{display:flex;flex-direction:column;gap:14px;padding-top:18px}
+.mal-welcome-footer .mal-action{min-height:57px;border-radius:19px;box-shadow:0 4px 0 #233fd9}
+.mal-welcome-footer .mal-action:active{box-shadow:0 0 0 #233fd9}
+.mal-welcome-note{font-size:11px!important;color:var(--mal-muted)!important;text-align:center}
+@keyframes mal-welcome-drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes mal-welcome-enter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.mal-welcome *{animation:none!important;transition:none!important}}

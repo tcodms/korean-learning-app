@@ -1,0 +1,44 @@
+/* Shared onboarding layout — imported by each onboarding screen. */
+.mal-onb-screen { padding-bottom: calc(var(--device-safe-area-bottom, 34px) + 110px); }
+
+/* Title block */
+.mal-onb-title { margin-top: 28px; }
+.mal-onb-title h1 { font-size: 32px; line-height: 1.14; letter-spacing: -1.3px; margin-top: 11px; }
+.mal-onb-title p { font-size: 14px; line-height: 1.6; color: var(--mal-muted); margin-top: 12px; }
+
+/* Footer notes */
+.mal-onb-note { font-size: 11px; text-align: center; color: var(--mal-muted); margin-top: 20px !important; }
+.mal-onb-warning {
+  font-size: 12px; line-height: 1.65; color: var(--mal-muted);
+  background: var(--mal-lilac); border-radius: 14px;
+  padding: 13px 15px; margin-top: 16px !important;
+}
+
+/* Skip button in topbar */
+.mal-skip-button {
+  font-size: 13px !important; font-weight: 600 !important;
+  color: var(--mal-muted) !important; min-height: 36px; padding: 0 4px !important;
+}
+.mal-skip-button:hover { color: var(--mal-ink) !important; }
+
+/* Shared interaction language for all four setup steps. */
+.mal-onb-screen .mal-topbar,.mal-skills .mal-topbar{min-height:40px}
+.mal-onb-screen .mal-step,.mal-skills .mal-step{background:#edf0ff;color:var(--mal-blue);padding:7px 10px;border-radius:20px;font-size:10px}
+.mal-onb-screen .mal-onboarding-progress,.mal-skills .mal-onboarding-progress{gap:7px;margin-top:21px}
+.mal-onb-screen .mal-onboarding-progress>i,.mal-skills .mal-onboarding-progress>i{flex:1;height:5px;width:auto;transition:background .3s}
+.mal-onb-title,.mal-skills-title{animation:mal-setup-in .35s ease both}
+.mal-onb-title .mal-eyebrow,.mal-skills-title .mal-eyebrow{display:inline-block;background:#ecf4cf;color:#516329;padding:7px 9px;border-radius:7px;font-size:8px;letter-spacing:1.1px}
+.mal-onb-title h1{margin-top:15px}
+.mal-lang-row,.mal-level-row,.mal-skill-card,.mal-goal-option{animation:mal-setup-in .35s ease both}
+.mal-lang-row:nth-child(2),.mal-level-row:nth-child(2),.mal-skill-card:nth-child(2){animation-delay:.045s}
+.mal-lang-row:nth-child(3),.mal-level-row:nth-child(3),.mal-skill-card:nth-child(3){animation-delay:.09s}
+.mal-lang-row:nth-child(4),.mal-skill-card:nth-child(4){animation-delay:.135s}
+.mal-onb-screen~.mal-fixed-footer .mal-action,.mal-skills~.mal-fixed-footer .mal-action{border-radius:19px}
+.mal-onb-warning{border:1px solid #dce3fc;animation:mal-setup-in .2s ease}
+@keyframes mal-setup-in{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.mal-onb-screen *,.mal-skills *{animation:none!important;transition:none!important}}
+
+.mal-onb-footer .mal-action{border-radius:19px;box-shadow:0 3px 0 #233fd9}
+.mal-onb-footer .mal-action:disabled{box-shadow:none}
+.mal-onb-footer .mal-action:active:not(:disabled){box-shadow:none}
+.mal-onb-footer::after{content:'';position:absolute;top:100%;left:0;right:0;height:var(--device-safe-area-bottom,34px);background:var(--mal-paper)}

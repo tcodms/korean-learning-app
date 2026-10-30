@@ -68,5 +68,5 @@ return <><MobileScroll key={index} className="mal-scroll"><main className="mal-c
           {feedback&&<FeedbackPanel shownCorrect={shownCorrect} answer={question.answer} explanation={question.explanation} yourAnswer={typing?typed.trim():choice??undefined}/>}
           <p className="mal-lesson-footer-note">{feedback?'A little Korean, a little closer.':'Take your time. You’ve got this.'}</p>
 
-</main></MobileScroll><footer className="mal-fixed-footer" style={{bottom:bottomInset}}><Action disabled={!answered&&!feedback} onClick={check}>{feedback?(hasNext?'Next question':'Back to Today'):'Check answer'}</Action></footer></>;
+</main></MobileScroll><footer className="mal-fixed-footer" style={{bottom:bottomInset}}><Action disabled={!answered&&!feedback} onClick={check}>{feedback?(hasNext?'Next question':'See results'):'Check answer'}</Action></footer></>;
 }

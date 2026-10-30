@@ -6,6 +6,7 @@ import Action from '../../shared/components/Action';
 import { skills } from '../../shared/data/skills';
 import type { Skill } from '../../shared/types/learning';
 import './DailySkillsScreen.css';
+import './onboarding.css';
 interface Props { selected:Skill[]; onExit:()=>void; onComplete:(selected:Skill[])=>void; }
 export default function DailySkillsScreen({selected,onExit,onComplete}:Props){
  const [draft,setDraft]=useState<Skill[]>(selected);
@@ -19,5 +20,5 @@ export default function DailySkillsScreen({selected,onExit,onComplete}:Props){
           <p className="mal-selection-caption" aria-live="polite">{draft.length?`${draft.length} ${draft.length===1?'skill':'skills'} selected. A little progress, your way.`:'Choose at least one skill to continue.'}</p>
 
         
- </main></MobileScroll><footer className="mal-fixed-footer" style={{bottom:bottomInset}}><Action disabled={!draft.length} onClick={()=>onComplete(draft)}>Continue</Action></footer></>;
+ </main></MobileScroll><footer className="mal-fixed-footer mal-onb-footer" style={{bottom:bottomInset}}><Action disabled={!draft.length} onClick={()=>onComplete(draft)}>Continue</Action></footer></>;
 }
