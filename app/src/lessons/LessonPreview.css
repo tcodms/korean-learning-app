@@ -1,9 +1,6 @@
 .mal-lesson-header{display:flex;align-items:center;gap:12px;margin-left:-7px}
 .mal-lesson-header>span{font-size:14px;font-weight:700;white-space:nowrap}
 .mal-lesson-header>span>small{font-size:12px;color:var(--mal-muted);font-weight:400}
-.mal-lesson-type{display:inline-flex;gap:3px;align-items:center;background:#e9edff;border-radius:12px;padding:4px;margin-top:23px}
-.mal-lesson-type>button{display:flex;gap:6px;align-items:center;font-size:11px;min-height:30px;border-radius:9px;padding:6px 9px;color:#647198;transition:background .18s,color .18s}
-.mal-lesson-type>button[aria-pressed=true]{background:white;color:var(--mal-blue);box-shadow:0 1px 4px #2333a40a;font-weight:600}
 .mal-question-title{font-size:27px!important;line-height:1.2!important;letter-spacing:-1px!important;margin-top:23px!important}
 .mal-question-subtitle{font-size:12px;line-height:1.65;color:var(--mal-muted);margin-top:9px!important;max-width:290px}
 .mal-question-tools{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:23px}
@@ -11,6 +8,7 @@
 .mal-question-tools>button:hover{background:#ecefff}
 .mal-question-tools>button:active{transform:translateY(2px)}
 .mal-question-tools>button:disabled{opacity:.35}
+.mal-question-tools>button:last-child{margin-left:auto}
 .mal-hint{display:flex;align-items:flex-start;gap:9px;border-radius:15px;padding:14px;background:#f0f5db;color:#576538;margin-top:14px;animation:mal-panel-in .22s ease-out}
 .mal-hint>svg{flex-shrink:0}
 .mal-hint>p{font-size:12px;line-height:1.7}
@@ -22,9 +20,21 @@
 .mal-feedback-head{display:flex;align-items:center;gap:9px}
 .mal-feedback-head>h2{font-size:16px;letter-spacing:-.5px}
 .mal-feedback-symbol{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--mal-lime);flex-shrink:0;animation:mal-check-pop .4s ease-out}
-.mal-feedback.try-again .mal-feedback-symbol{background:#e1e5ff}
+.mal-feedback.try-again{background:#fffaf6;border-color:#f1d6cc}
+.mal-feedback.try-again .mal-feedback-symbol{background:#c8492f;color:#fff}
+.mal-your-answer{display:flex;align-items:baseline;gap:10px;margin-top:16px;padding:10px 12px;border:1px dashed #e6b9aa;border-radius:12px;background:#fff}
+.mal-your-answer>span,.mal-answer-label{font-size:11px;font-weight:600;color:#5d6889}
+.mal-your-answer>del{font-family:'Noto Sans KR',sans-serif;font-size:17px;font-weight:600;color:#b03e27;text-decoration-thickness:2px}
+.mal-answer-label{display:block;margin-top:14px}
+.mal-answer-label+.mal-correct-answer{margin-top:2px!important}
 .mal-correct-answer{font-family:'Noto Sans KR',sans-serif;font-size:23px;line-height:1.7;font-weight:600;margin-top:18px!important}
 .mal-feedback>p:not(.mal-correct-answer){font-size:12px;line-height:1.8;color:#637298;margin-top:10px}
 .mal-feedback-bottom{display:flex;align-items:center;justify-content:space-between;min-height:83px}
 .mal-feedback-bottom>span:first-child{font-size:10px;color:#7280a5}
 .mal-feedback-buddy{width:65px;height:87px}
+/* Retry after a wrong answer (all lessons) */
+.mal-retry{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px!important;font-size:12px;font-weight:600;color:#b03e27;animation:mal-panel-in .22s ease-out}
+.mal-retry>svg{width:20px;height:20px;padding:3px;border-radius:50%;background:#c8492f;color:#fff}
+.mal-input-wrap>input.wrong-flash{animation:mal-input-wrong 1.1s ease-out}
+@keyframes mal-input-wrong{0%{background:#fff;border-color:#bbc7ff}25%{background:#fde3dc;border-color:#c8492f}100%{background:#fff;border-color:#bbc7ff}}
+@media (prefers-reduced-motion:reduce){.mal-input-wrap>input.wrong-flash{animation:none}}

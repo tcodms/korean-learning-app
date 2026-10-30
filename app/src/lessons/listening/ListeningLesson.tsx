@@ -1,10 +1,13 @@
 import type { Dispatch, SetStateAction } from 'react';
 import AudioControls from '../components/AudioControls';
-import WordCards from '../components/WordCards';
-import { listeningWordBank } from './listening.mock';
+import ChoiceAnswers from '../components/ChoiceAnswers';
+import RetryNote from '../components/RetryNote';
+import type { ContextQuestion } from '../types';
+import type { ListeningMode } from './listening.mock';
 import './ListeningLesson.css';
-interface Props { feedback:boolean;inputMode:boolean;playing:boolean;slow:boolean;cards:string[];setPlaying:Dispatch<SetStateAction<boolean>>;setSlow:Dispatch<SetStateAction<boolean>>;setCards:Dispatch<SetStateAction<string[]>>; }
-export default function ListeningLesson({feedback,inputMode,playing,slow,cards,setPlaying,setSlow,setCards}:Props){return <>
+interface Props { mode:ListeningMode;question:ContextQuestion;feedback:boolean;playing:boolean;slow:boolean;choice:string|null;onChoose:(meaning:string)=>void;setPlaying:Dispatch<SetStateAction<boolean>>;setSlow:Dispatch<SetStateAction<boolean>>;wrongAttempts:number;tried:readonly string[]; }
+export default function ListeningLesson({mode,question,feedback,playing,slow,choice,onChoose,setPlaying,setSlow,wrongAttempts,tried}:Props){return <>
 <AudioControls playing={playing} slow={slow} onReplay={()=>setPlaying(true)} onTogglePlay={()=>setPlaying(p=>!p)} onToggleSpeed={()=>setSlow(s=>!s)}/>
-{!feedback&&!inputMode&&<WordCards cards={cards} bank={listeningWordBank} onRemove={i=>setCards(c=>c.filter((_,n)=>n!==i))} onAdd={word=>setCards(c=>[...c,word])}/>}
+{!feedback&&<RetryNote attempt={wrongAttempts}/>}
+{!feedback&&mode==='context'&&<ChoiceAnswers options={question.options} choice={choice} onChoose={onChoose} lang="en" tried={tried}/>}
 </>;}

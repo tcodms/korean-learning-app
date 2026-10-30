@@ -4,7 +4,7 @@ import {useEffect,useLayoutEffect,useRef,useState} from 'react';
 import {createPortal} from 'react-dom';
 import {BottomSheet,useKeyboard,useKeyboardInsets} from './mobile';
 import Action from './shared/components/Action';
-import type {Screen,Skill} from './shared/types/learning';
+import type {ListeningMode,Screen,Skill} from './shared/types/learning';
 
 // Screens
 import WelcomeScreen from './screens/onboarding/WelcomeScreen';
@@ -19,6 +19,7 @@ import LessonIntroScreen from './screens/learn/LessonIntroScreen';
 import {getLessons,type TopicId,type LessonSummary} from './screens/learn/learn.mock';
 import CourseIntroScreen from './screens/today/CourseIntroScreen';
 import LessonPreview from './lessons/LessonPreview';
+import ListeningModePicker from './lessons/listening/ListeningModePicker';
 import ResultScreen from './screens/result/ResultScreen';
 import ReviewScreen from './screens/review/ReviewScreen';
 import StudyItemScreen from './screens/review/StudyItemScreen';
@@ -46,6 +47,8 @@ const [savedIds,setSavedIds]=useState<string[]>(initialSavedIds);
 const [reviewTab,setReviewTab]=useState<ReviewTab>('due');
 const [reviewFilter,setReviewFilter]=useState<ReviewCategory|'all'>('all');
 const [studyItem,setStudyItem]=useState<StudyItem>(studyItems[0]);
+const [listeningMode,setListeningMode]=useState<ListeningMode>('context');
+const [listeningPicker,setListeningPicker]=useState(false);
 // Overlay state
 const [about,setAbout]=useState(false);
 const [previewPanel,setPreviewPanel]=useState<'progress'|null>(null);
@@ -62,8 +65,11 @@ function openSkillsFrom(back:Screen,returnTo:Screen){
   setSkillsBack(back);setSkillsReturn(returnTo);go('skills');
 }
 function openLesson(next:Skill='vocabulary',kind:ResultKind='free',returnTo:Screen='today'){
-  setArea(next);setResultKind(kind);setLessonReturn(returnTo);go('lesson');
+  keyboard.hide();setArea(next);setResultKind(kind);setLessonReturn(returnTo);
+  if(next==='listening'){setListeningPicker(true);return;}
+  go('lesson');
 }
+function startListening(mode:ListeningMode){setListeningPicker(false);setListeningMode(mode);go('lesson');}
 function openLearn(next:Skill='vocabulary'){setBrowseArea(next);go('learn');}
 
 function openReview(){setReviewTab('due');setReviewFilter('all');go('review');}
@@ -139,8 +145,9 @@ return <>
   {screen==='study-item'&&<StudyItemScreen item={studyItem} saved={savedIds.includes(studyItem.id)} onBack={()=>go('review')} onSave={()=>toggleSaved(studyItem.id)} onPractice={()=>openLesson(studyItem.category,'review','study-item')}/>}
   {screen==='course'&&<CourseIntroScreen selected={selected} onExit={()=>go('today')} onEdit={openSkillsFromCourse} onStart={next=>openLesson(next,'daily')}/>}
   {screen==='result'&&<ResultScreen result={createResultPreview(resultKind,resultKind==='daily'?selected:[area])} onHome={()=>go('today')} onPracticeAgain={()=>openLesson(resultKind==='daily'?(selected[0]??'vocabulary'):area,resultKind)} onReview={openReview}/>}
-  {screen==='lesson'&&<LessonPreview key={area} area={area} onExit={()=>go(lessonReturn)} onComplete={()=>go('result')}/>}
+  {screen==='lesson'&&<LessonPreview key={`${area}-${listeningMode}`} area={area} listeningMode={listeningMode} onExit={()=>go(lessonReturn)} onComplete={()=>go('result')}/>}
 
+  <BottomSheet open={listeningPicker} onOpenChange={setListeningPicker} title="Choose your listening practice." description="Each practice has its own set of questions."><div className="mal-sheet"><ListeningModePicker onPick={startListening}/></div></BottomSheet>
   <BottomSheet open={about} onOpenChange={setAbout} title="A little look at MAL" description="A new little learning world.">
     <div className="mal-sheet">
       <p>This is a visual preview with sample content. Explore the buttons, choose your daily skills, and try the lesson states.</p>

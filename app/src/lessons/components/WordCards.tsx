@@ -1,2 +1,0 @@
-interface Props {cards:string[];bank:readonly string[];onRemove:(index:number)=>void;onAdd:(word:string)=>void;}
-export default function WordCards({cards,bank,onRemove,onAdd}:Props){return <><div className="mal-answer-slots" aria-label="Your sentence">{[0,1,2].map(i=>cards[i]?<button key={i} lang="ko" onClick={()=>onRemove(i)}>{cards[i]}</button>:<span key={i}/>)}</div><div className="mal-word-bank">{bank.map(word=><button lang="ko" className="mal-word" key={word} disabled={cards.includes(word)||cards.length===3} onClick={()=>onAdd(word)}>{word}</button>)}</div></>;}
