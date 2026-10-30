@@ -1,5 +1,5 @@
 .mal-question-card{margin-top:27px;padding:24px 18px;background:#fffef9;border:1px solid #e7e7f2;border-radius:23px;text-align:center}
-.mal-question-card>span{font-size:13px;color:#7882a0}
+.mal-question-card>span{font-size:26px;color:#7882a0}
 .mal-question-card>p{font-family:'Noto Sans KR',sans-serif;font-size:26px;font-weight:600;line-height:1.8;white-space:nowrap;margin-top:14px}
 .mal-question-card>p>span{display:inline-block;min-width:65px;border-bottom:2px solid #afbcfb;color:var(--mal-blue);line-height:1.6}
 .mal-question-card>p>span.filled{border-bottom:0;background:#eef0ff;border-radius:6px;padding:0 4px}
