@@ -1,4 +1,4 @@
-import { BookOpen, Headphones, Lightbulb, ArrowCounterClockwise, Keyboard } from '@phosphor-icons/react';
+import { Lightbulb, ArrowCounterClockwise, Keyboard } from '@phosphor-icons/react';
 
 import {useEffect,useState} from 'react';
 import {MobileScroll,useKeyboard,useKeyboardInsets} from '../mobile';
@@ -15,20 +15,17 @@ import './LessonPreview.css';
 export default function LessonPreview({area,onExit,onComplete}:LessonPreviewProps){
  const [choice,setChoice]=useState<string|null>(null),[typed,setTyped]=useState('');
   const [inputMode,setInputMode]=useState(false),[hint,setHint]=useState(false),[feedback,setFeedback]=useState(false);
-  const [questionType,setQuestionType]=useState<'words'|'listening'>(area==='listening'?'listening':'words');
   const [cards,setCards]=useState<string[]>([]),[playing,setPlaying]=useState(false),[slow,setSlow]=useState(false);
 
 const keyboard=useKeyboard(),{bottomInset}=useKeyboardInsets();
 useEffect(()=>{if(!playing)return;const t=window.setTimeout(()=>setPlaying(false),2400);return ()=>clearTimeout(t);},[playing]);
-function resetQuestion(){keyboard.hide();setChoice(null);setTyped('');setFeedback(false);setHint(false);setCards([]);setPlaying(false);}
-const isListening=questionType==='listening';
+const isListening=area==='listening';
 const answered=inputMode?typed.trim().length>0:isListening?cards.length>0:choice!==null;
 const shownCorrect=inputMode||isListening||choice==='학교';
 const WordLesson=area==='grammar'?GrammarLesson:area==='expressions'?ExpressionsLesson:VocabularyLesson;
 return <><MobileScroll className="mal-scroll"><main className="mal-content mal-lesson">
 
           <LessonHeader isListening={isListening} onExit={onExit}/>
-          <div className="mal-lesson-type" role="group" aria-label="Lesson preview type"><button aria-pressed={!isListening} onClick={()=>{resetQuestion();setQuestionType('words');}}><BookOpen size={16}/>Vocabulary</button><button aria-pressed={isListening} onClick={()=>{resetQuestion();setQuestionType('listening');}}><Headphones size={16}/>Listening</button></div>
           <h1 className="mal-question-title">{isListening?'Hear it. Build it.':'Find the right word.'}</h1><p className="mal-question-subtitle">{isListening?'Tap the words in the order you hear them.':'Choose the word that fits the sentence.'}</p>
           {isListening?<ListeningLesson feedback={feedback} inputMode={inputMode} cards={cards} setCards={setCards} playing={playing} setPlaying={setPlaying} slow={slow} setSlow={setSlow}/>:<WordLesson feedback={feedback} inputMode={inputMode} choice={choice} onChoose={setChoice}/>}
           {!feedback&&inputMode&&<AnswerInput typed={typed} onChange={setTyped} onBlur={()=>keyboard.hide()}/>}
