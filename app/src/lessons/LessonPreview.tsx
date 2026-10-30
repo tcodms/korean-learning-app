@@ -37,5 +37,5 @@ return <><MobileScroll className="mal-scroll"><main className="mal-content mal-l
           {feedback&&<FeedbackPanel shownCorrect={shownCorrect} isListening={isListening}/>}
           <p className="mal-lesson-footer-note">{feedback?'A little Korean, a little closer.':'Take your time. You’ve got this.'}</p>
         
-</main></MobileScroll><footer className="mal-fixed-footer" style={{bottom:bottomInset}}><Action disabled={!answered&&!feedback} onClick={()=>{keyboard.hide();if(feedback){onComplete();}else setFeedback(true);}}>{feedback?'Back to Today':'Check answer'}</Action></footer></>;
+</main></MobileScroll><footer className="mal-fixed-footer" style={{bottom:bottomInset}}><Action disabled={!answered&&!feedback} onClick={()=>{keyboard.hide();if(feedback){onComplete();}else setFeedback(true);}}>{feedback?'See results':'Check answer'}</Action></footer></>;
 }
