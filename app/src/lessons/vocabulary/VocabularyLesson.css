@@ -34,4 +34,7 @@
 /* Correct answer: the card glows light green, then settles back */
 .mal-question-card.correct-flash{animation:mal-correct-flash 1.1s ease-out}
 @keyframes mal-correct-flash{0%{background:#fffef9;border-color:#e7e7f2}25%{background:#eaf7c6;border-color:#c9e57a}100%{background:#fffef9;border-color:#e7e7f2}}
-@media (prefers-reduced-motion:reduce){.mal-question-card.correct-flash{animation:none}}
+/* Wrong answer: the card glows light red, then settles back */
+.mal-question-card.wrong-flash{animation:mal-wrong-flash 1.1s ease-out}
+@keyframes mal-wrong-flash{0%{background:#fffef9;border-color:#e7e7f2}25%{background:#fde3dc;border-color:#f0b9aa}100%{background:#fffef9;border-color:#e7e7f2}}
+@media (prefers-reduced-motion:reduce){.mal-question-card.correct-flash,.mal-question-card.wrong-flash{animation:none}}

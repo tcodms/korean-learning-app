@@ -17,7 +17,7 @@ const blankHint=inputMode?hangulHint(vocabularyAnswer,hintLevel):null;
 const inputWidth=`${Math.max([...typed].length,[...(blankHint??'')].length,2)+0.4}em`;
 const toggle=(word:string)=>setOpenWord(w=>w===word?null:word);
 return <>
-<div className={`mal-question-card ${feedback&&correct?'correct-flash':''}`} data-gloss-bounds><span>{promptBefore}<strong className="mal-keyword">{vocabularyPrompt.keyword}</strong>{promptAfter}</span><p lang="ko" ref={sentenceRef}>{vocabularySentenceParts.map((part,i)=>typeof part==='string'?part
+<div className={`mal-question-card ${feedback?(correct?'correct-flash':'wrong-flash'):''}`} data-gloss-bounds><span>{promptBefore}<strong className="mal-keyword">{vocabularyPrompt.keyword}</strong>{promptAfter}</span><p lang="ko" ref={sentenceRef}>{vocabularySentenceParts.map((part,i)=>typeof part==='string'?part
   :part.blank?<span key={i} className={`mal-blank ${feedback?'filled':inputMode?'typing':choice?'chosen':''} ${!feedback&&blankHint?'hinted':''}`}>{feedback?<GlossWord gloss={part} open={openWord===part.word} onToggle={()=>toggle(part.word)}/>:inputMode?<><KeyboardInput className="mal-blank-input" aria-label="Your answer" value={typed} onChange={e=>onType(e.target.value)} onBlur={()=>keyboard.hide()} autoComplete="off" lang="ko" style={{width:inputWidth}}/>{!typed&&blankHint&&<span key={hintLevel} className="mal-hint-reveal mal-blank-ghost" aria-hidden="true">{blankHint}</span>}</>:choice?<span key={choice} className="mal-hint-reveal">{choice}</span>:'　　'}</span>
   :<GlossWord key={i} gloss={part} open={openWord===part.word} onToggle={()=>toggle(part.word)}/>)}</p></div>
  {!feedback&&!inputMode&&<ChoiceAnswers options={vocabularyOptions} choice={choice} onChoose={onChoose}/>}
