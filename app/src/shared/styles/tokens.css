@@ -1,0 +1,2 @@
+/* MAL visual preview. Component state is only for exploring the design. */
+.mal-app,.mal-sheet{--mal-paper:#fff9ed;--mal-blue:#3353ff;--mal-blue-deep:#233fda;--mal-ink:#192445;--mal-lime:#d7f568;--mal-lilac:#eef0ff;--mal-line:#dfe4ff;--mal-muted:#6d789b;font-family:Inter,'Noto Sans KR',sans-serif;color:var(--mal-ink);font-size:14px;-webkit-font-smoothing:antialiased}

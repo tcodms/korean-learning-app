@@ -8,6 +8,7 @@
 - 백엔드, 기록 저장, 실제 학습 코스·채점·음성 연결은 현재 범위가 아니다.
 - 기준 이미지는 design/mal-home-reference.png다. 캐릭터는 투명 PNG와 포즈 스프라이트를 사용한다.
 - 모바일 런타임 보호 지침은 app/AGENTS.md를 따른다.
+- 협업 구조: 전체 흐름 담당은 `app/src/screens/`와 `Prototype.tsx`, 수업 담당은 `app/src/lessons/`를 수정한다. `shared/`는 전체 흐름 담당이 관리한다. 수업은 `LessonPreview`의 area/onExit/onComplete로 연결하며 자세한 안내는 `docs/ui-collaboration.md`를 따른다.
 
 ## 확정된 사용자 디자인 결정 — 2026-10-29
 

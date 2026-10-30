@@ -1,0 +1,1 @@
+export default function Mascot({reading=false,active=false}:{reading?:boolean;active?:boolean}){return reading&&!active?<img className="mal-reading" src="/assets/mal/reading.png" alt="MAL’s blue study buddy reading a book" draggable={false}/>:<span className={`mal-mascot ${active?'is-celebrating':''}`} role="img" aria-label="MAL’s blue study buddy waving"><span/></span>;}

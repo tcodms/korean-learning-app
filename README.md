@@ -23,7 +23,16 @@ npm run dev -- --host 127.0.0.1 --port 4173 --strictPort
 
 브라우저에서 http://localhost:4173/ 를 엽니다. 화면 바깥 메뉴에서 세 화면을 바로 전환하고 우측 메뉴에서 iPhone·Pixel을 선택할 수 있습니다. 브라우저 속 기기 프레임이며 네이티브 에뮬레이터는 아닙니다.
 
-## 디자인과 검증
+## 팀 작업 구조
+
+- 전체 흐름 담당: `app/src/screens/`, `app/src/Prototype.tsx`
+- 수업 담당: `app/src/lessons/` — 어휘·듣기·문법·표현
+- 공통 UI: `app/src/shared/` — 색상·버튼·캐릭터·공통 타입
+- 협업 방법·수업 연결·브랜치 안내: [UI 협업 안내](docs/ui-collaboration.md)
+
+문법·표현은 교체용 시작 파일이며 전용 수업 UI가 완성된 상태가 아닙니다. 예약한 화면 폴더는 README로 작업 범위를 표시했습니다.
+
+## 디자인과 검증 자료
 
 기준 이미지: `design/mal-home-reference.png`. 생성 캐릭터: `app/public/assets/mal/`. 검증: `design-qa.md`, 화면 캡처: `docs/qa/mal-ui/`.
 

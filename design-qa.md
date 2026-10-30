@@ -4,7 +4,11 @@ final result: passed
 
 Scope: three coded screen designs, using temporary presentation state only. No backend, persistence, real audio, course engine, or production grading is connected.
 
-Reference: `design/mal-home-reference.png` (390 × 940). Implementation: `app/src/MalPreview.tsx`, `app/src/prototype.css`. Direct side-by-side evidence: `docs/qa/mal-ui/home-comparison.png`. Three-screen board: `docs/qa/mal-ui/essential-screens.png`.
+Reference: `design/mal-home-reference.png` (390 × 940). Implementation: `app/src/Prototype.tsx`, `app/src/screens/`, `app/src/lessons/`, `app/src/shared/`. Direct side-by-side evidence: `docs/qa/mal-ui/home-comparison.png`. Three-screen board: `docs/qa/mal-ui/essential-screens.png`.
+
+Collaboration refactor: extracted the existing home, daily skills selection, question layouts, shared controls, fixture arrays and CSS into their owned folders. `Prototype.tsx` now connects `LessonPreview` through `area/onExit/onComplete`. Grammar and expressions have explicit starter entry points reusing the existing word mock; they are not completed lesson designs. Reserved flow folders contain README files. See `docs/ui-collaboration.md` for ownership and branch instructions.
+
+Refactor regression verification: home → skills → Continue → home → vocabulary → sample feedback → completion callback → home → listening card selection passed in a separate browser tab. Corrected browser focus scrolling of the outer device viewport after clicks; the inner MobileScroll remains responsible for content scrolling. Final capture: `docs/qa/mal-ui/folder-split-listening.png`. TypeScript, production build and the 28-file runtime integrity check passed after the refactor.
 
 ## Visual comparison
 
