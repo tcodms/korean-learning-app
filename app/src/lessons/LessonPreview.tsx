@@ -42,7 +42,7 @@ return <><MobileScroll className="mal-scroll"><main className="mal-content mal-l
 
           <LessonHeader isListening={isListening} onExit={onExit}/>
           <h1 className="mal-question-title">{question.title}</h1><p className="mal-question-subtitle">{question.subtitle}</p>
-          {isListening?<ListeningLesson mode={listeningMode} feedback={feedback} choice={choice} onChoose={setChoice} playing={playing} setPlaying={setPlaying} slow={slow} setSlow={setSlow}/>:<WordLesson feedback={feedback} inputMode={inputMode} hintLevel={hintLevel} typed={typed} onType={setTyped} choice={choice} onChoose={setChoice}/>}
+          {isListening?<ListeningLesson mode={listeningMode} feedback={feedback} choice={choice} onChoose={setChoice} playing={playing} setPlaying={setPlaying} slow={slow} setSlow={setSlow}/>:<WordLesson feedback={feedback} correct={shownCorrect} inputMode={inputMode} hintLevel={hintLevel} typed={typed} onType={setTyped} choice={choice} onChoose={setChoice}/>}
           {!feedback&&isDictation&&<AnswerInput typed={typed} onChange={setTyped} onBlur={()=>keyboard.hide()}/>}
           {!feedback&&<div className="mal-question-tools">{isListening?<button onClick={()=>setHint(h=>!h)} aria-expanded={hint}><Lightbulb size={17}/>Hint</button>:inputMode&&<button disabled={hintLevel>=maxHintLevel} onClick={()=>setHintLevel(l=>Math.min(l+1,maxHintLevel))}><Lightbulb size={17}/>Hint</button>}{!isListening&&<button onClick={()=>{keyboard.hide();lastInputMode[area]=!inputMode;setInputMode(!inputMode);}}><Keyboard size={17}/>{inputMode?'Use cards':'Type instead'}</button>}</div>}
           {isListening&&hint&&!feedback&&<div className="mal-hint"><Lightbulb size={19}/><p>{question.hint}</p></div>}

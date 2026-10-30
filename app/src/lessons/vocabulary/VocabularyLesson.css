@@ -31,3 +31,7 @@
 .mal-blank-input{min-width:65px;padding:0;border:0;background:transparent;font:inherit;line-height:1.6;color:var(--mal-blue);text-align:center;outline:none;caret-color:var(--mal-blue)}
 .mal-blank-ghost{position:absolute;left:50%;top:0;translate:-50% 0;pointer-events:none}
 .mal-question-card .mal-blank.chosen{border-bottom-color:var(--mal-blue)}
+/* Correct answer: the card glows light green, then settles back */
+.mal-question-card.correct-flash{animation:mal-correct-flash 1.1s ease-out}
+@keyframes mal-correct-flash{0%{background:#fffef9;border-color:#e7e7f2}25%{background:#eaf7c6;border-color:#c9e57a}100%{background:#fffef9;border-color:#e7e7f2}}
+@media (prefers-reduced-motion:reduce){.mal-question-card.correct-flash{animation:none}}
