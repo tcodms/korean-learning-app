@@ -30,3 +30,4 @@
 .mal-question-card .mal-blank.typing:focus-within{border-bottom:3px solid var(--mal-blue)}
 .mal-blank-input{min-width:65px;padding:0;border:0;background:transparent;font:inherit;line-height:1.6;color:var(--mal-blue);text-align:center;outline:none;caret-color:var(--mal-blue)}
 .mal-blank-ghost{position:absolute;left:50%;top:0;translate:-50% 0;pointer-events:none}
+.mal-question-card .mal-blank.chosen{border-bottom-color:var(--mal-blue)}
