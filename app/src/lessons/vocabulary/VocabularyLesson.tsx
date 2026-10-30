@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import { X } from '@phosphor-icons/react';
 import { KeyboardInput, useKeyboard } from '../../mobile';
 import ChoiceAnswers from '../components/ChoiceAnswers';
 import GlossWord from '../components/GlossWord';
+import RetryNote from '../components/RetryNote';
 import { hangulHint } from '../components/hangulHint';
 import { vocabularyAnswer, vocabularyOptions, vocabularyPrompt, vocabularySentenceParts } from './vocabulary.mock';
 import './VocabularyLesson.css';
@@ -24,6 +24,6 @@ return <>
 <div ref={cardRef} className={`mal-question-card ${feedback&&correct?'correct-flash':''}`} data-gloss-bounds><span>{promptBefore}<strong className="mal-keyword">{vocabularyPrompt.keyword}</strong>{promptAfter}</span><p lang="ko" ref={sentenceRef}>{vocabularySentenceParts.map((part,i)=>typeof part==='string'?part
   :part.blank?<span key={i} className={`mal-blank ${feedback?'filled':inputMode?'typing':choice?'chosen':''} ${!feedback&&blankHint?'hinted':''}`}>{feedback?<GlossWord gloss={part} open={openWord===part.word} onToggle={()=>toggle(part.word)}/>:inputMode?<><KeyboardInput ref={inputRef} className="mal-blank-input" aria-label="Your answer" value={typed} onChange={e=>onType(e.target.value)} onBlur={()=>keyboard.hide()} autoComplete="off" lang="ko" style={{width:inputWidth}}/>{!typed&&blankHint&&<span key={hintLevel} className="mal-hint-reveal mal-blank-ghost" aria-hidden="true">{blankHint}</span>}</>:choice?<span key={choice} className="mal-hint-reveal">{choice}</span>:'　　'}</span>
   :<GlossWord key={i} gloss={part} open={openWord===part.word} onToggle={()=>toggle(part.word)}/>)}</p></div>
- {!feedback&&wrongAttempts>0&&<p key={wrongAttempts} className="mal-retry" role="status"><X size={14} weight="bold"/>Not quite. Try again.</p>}
+ {!feedback&&<RetryNote attempt={wrongAttempts}/>}
  {!feedback&&!inputMode&&<ChoiceAnswers options={vocabularyOptions} choice={choice} onChoose={onChoose} tried={tried}/>}
  </>;}

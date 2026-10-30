@@ -32,3 +32,9 @@
 .mal-feedback-bottom{display:flex;align-items:center;justify-content:space-between;min-height:83px}
 .mal-feedback-bottom>span:first-child{font-size:10px;color:#7280a5}
 .mal-feedback-buddy{width:65px;height:87px}
+/* Retry after a wrong answer (all lessons) */
+.mal-retry{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px!important;font-size:12px;font-weight:600;color:#b03e27;animation:mal-panel-in .22s ease-out}
+.mal-retry>svg{width:20px;height:20px;padding:3px;border-radius:50%;background:#c8492f;color:#fff}
+.mal-input-wrap>input.wrong-flash{animation:mal-input-wrong 1.1s ease-out}
+@keyframes mal-input-wrong{0%{background:#fff;border-color:#bbc7ff}25%{background:#fde3dc;border-color:#c8492f}100%{background:#fff;border-color:#bbc7ff}}
+@media (prefers-reduced-motion:reduce){.mal-input-wrap>input.wrong-flash{animation:none}}
