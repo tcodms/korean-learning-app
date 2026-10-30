@@ -8,6 +8,7 @@
 .mal-question-tools>button:hover{background:#ecefff}
 .mal-question-tools>button:active{transform:translateY(2px)}
 .mal-question-tools>button:disabled{opacity:.35}
+.mal-question-tools>button:last-child{margin-left:auto}
 .mal-hint{display:flex;align-items:flex-start;gap:9px;border-radius:15px;padding:14px;background:#f0f5db;color:#576538;margin-top:14px;animation:mal-panel-in .22s ease-out}
 .mal-hint>svg{flex-shrink:0}
 .mal-hint>p{font-size:12px;line-height:1.7}
