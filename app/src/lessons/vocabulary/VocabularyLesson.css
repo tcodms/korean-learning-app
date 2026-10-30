@@ -13,3 +13,4 @@
 .mal-choices>button.selected .mal-option-letter{border-color:transparent;color:#6d7d31}
 .mal-choices>button:hover:not(.selected){border-color:#aebaff!important;background:#f4f5ff!important}
 .mal-choices>button:active{transform:translateY(3px);box-shadow:none}
+.mal-question-card>span>.mal-keyword{color:#4a7f00;font-weight:600}
