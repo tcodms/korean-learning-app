@@ -1,0 +1,25 @@
+.mal-course-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-left:-8px;min-height:36px}
+.mal-course-header>span{font-size:14px;font-weight:600}
+.mal-course-edit{color:var(--mal-blue)!important;font-size:12px!important;font-weight:600!important;padding:10px 4px!important}
+.mal-course-hero{position:relative;margin-top:30px;padding-bottom:20px;min-height:207px}
+.mal-course-eyebrow{display:flex;align-items:center;gap:6px;color:var(--mal-blue);font-size:9px;font-weight:600;letter-spacing:1.4px}
+.mal-course-hero h1{margin-top:17px;font-size:30px;line-height:1.13;letter-spacing:-1.2px;position:relative;z-index:1}
+.mal-course-hero>p{font-size:12px;line-height:1.7;color:var(--mal-muted);margin-top:14px;max-width:220px;position:relative;z-index:1}
+.mal-course-buddy{position:absolute;right:-13px;bottom:0;width:125px;height:140px;pointer-events:none}
+.mal-course-summary{display:flex;justify-content:center;gap:24px;padding:16px 10px;border-radius:18px;background:var(--mal-lilac);color:var(--mal-ink)}
+.mal-course-summary>span{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:500}
+.mal-course-summary svg{color:var(--mal-blue)}
+.mal-course-plan{margin-top:28px}
+.mal-course-plan>h2{font-size:19px}
+.mal-course-plan>p{font-size:11px;color:var(--mal-muted);line-height:1.6;margin-top:7px}
+.mal-course-plan ol{list-style:none;margin:19px 0 0;padding:0;display:grid;gap:13px}
+.mal-course-plan li{display:flex;align-items:center;gap:12px;position:relative}
+.mal-course-number{display:grid;place-items:center;width:28px;height:28px;flex-shrink:0;border-radius:50%;background:var(--mal-lime);font-size:12px;font-weight:700;z-index:1}
+.mal-course-plan li:not(:last-child)::after{content:'';position:absolute;left:13px;top:50%;height:calc(100% + 13px);border-left:2px dashed #dce1f3}
+.mal-course-step{position:relative;display:flex;align-items:center;gap:13px;flex:1;background:#fffef9;border:1px solid var(--mal-line);border-radius:20px;padding:16px 14px;z-index:1}
+.mal-course-skill-icon{display:grid;place-items:center;width:39px;height:39px;border-radius:12px;background:var(--mal-lilac);color:var(--mal-blue);flex-shrink:0}
+.mal-course-step h3{margin:0;font-size:15px;letter-spacing:-.4px}
+.mal-course-step p{font-size:11px;line-height:1.5;color:var(--mal-muted);margin-top:4px}
+.mal-course-step small{display:block;margin-top:7px;color:var(--mal-blue);font-size:10px;font-weight:600}
+.mal-course-note{text-align:center;color:var(--mal-muted);font-size:11px;line-height:1.7;margin-top:22px!important}
+.mal-course-preview{text-align:center;color:var(--mal-muted);font-size:10px;margin-top:10px!important}
